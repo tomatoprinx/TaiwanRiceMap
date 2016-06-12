@@ -4,23 +4,34 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="https://d3js.org/topojson.v1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript" src="test.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ 
 
 </head>
 <body>
-	<style>
-  body {
-      background-color: #cceeff;
+	<svg width="800px" height="600px" viewBox="0 0 800 600"></svg>
+  <script>
+      var features = topojson.feature(topodata, topodata.objects["county"]).features;
+      // 這裡要注意的是 topodata.objects["county"] 中的 "county" 為原本 shp 的檔名
+  
+    var path = d3.geo.path().projection( // 路徑產生器
+    d3.geo.mercator().center([121,24]).scale(6000) // 座標變換函式
+  );
+ 
+  d3.select("svg").selectAll("path").data(features)
+    .enter().append("path").attr("d",path);
+    for(item=features.length - 1; item =0; item -- ) { 
+    item.properties.density = data[item.properties.C_Name]; 
   }
-
-  .subunit-boundary {
-      fill: none;
-      stroke: #fff;
-      stroke-dasharray: 5, 0;
-      stroke-linejoin: round;
-  }
-  </style>
-</body>
+ 
+  var color = d3.scale.linear().domain([0,10000]).range(["#090","#f00"]);
+  
+  d3.select("svg").selectAll("path").data(features).attr({
+    d: path,
+    fill: function(d) {
+      return color(Math.random()*100);
+    }
+  });
+  </script></body>
 </html>
