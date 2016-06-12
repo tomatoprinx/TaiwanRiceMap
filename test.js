@@ -11,8 +11,6 @@ var projection = d3.geo.mercator()
 
 var path = d3.geo.path()
     .projection(projection);
-
-
 d3.json("county.json", function(error, topology) {
     var g = svg.append("g");
     
