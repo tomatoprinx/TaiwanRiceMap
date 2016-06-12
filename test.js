@@ -1,3 +1,6 @@
+$(document).ready(function(){
+	drawTaiwan()
+});
 function drawTaiwan(){
 
 	var type='county';
