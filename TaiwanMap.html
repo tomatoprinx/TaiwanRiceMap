@@ -10,6 +10,9 @@
   
   <script type="text/javascript" src="test.js"></script>
   <style>
+  #map svg path:hover{
+    opacity: 0.5;
+  }
   body {
       background-color: #cceeff;
   }
@@ -113,6 +116,17 @@
 </head>
 <body>
   <div class="wrap">
+    <div>
+      <select name="稻作品項" id="map_croptype">
+        <option value="null" selected>選擇種類</option>
+        <option value="稉稻(蓬萊)">蓬萊米</option>
+        <option value="硬秈稻(在來)">在來米</option>
+        <option value="軟秈稻(秈稻)">秈稻米</option>
+        <option value="稉糯稻(圓糯)">圓糯米</option>
+        <option value="秈糯稻(長糯)">長糯米</option>
+      </select>
+      <button onclick="drawTaiwan()">查詢</button>
+    </div>
     <div id='map'>
     <svg  viewBox="0 0 1366 768">
           <g id='pathCanvas'></g>
