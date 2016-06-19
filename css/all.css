@@ -1,0 +1,108 @@
+body {
+	background-color: #cceeff;
+	font-family: 微軟正黑體;
+	margin:0;
+}
+table {
+	float: left;
+	background: white;
+	border:1px solid #747e7e;
+	border-collapse: collapse;
+	border-spacing: 2;
+	font-family: 微軟正黑體;
+	font-size: 14px;
+	font-weight: bold;
+}
+tr{
+	margin-top: 5px;
+}
+td{
+	text-align: center;
+	width: 20px;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+}
+svg{
+	width:1000px;
+	height:1000px;
+  	margin: 0 auto;
+}
+.wrap {
+	width: 1500px;
+	border:5px solid white;
+	margin: 0 auto;
+}
+
+#cropchoice{
+	width: 600px;
+	height: 50px;
+	margin: 0 auto;
+}
+#cropchoice li{
+	display: inline;
+	list-style-type: none;
+	width: 100px;
+	height: 30px;
+	background-color: #FFA5A5;
+	padding: 5px 10px 5px 10px;
+	font-family: 微軟正黑體;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#cropchoice li:hover{
+	color: #FFA5A5;
+	background-color: white;
+}
+.default {
+	background-color: #FFA5A5;
+}
+#reference  {
+	position: absolute;
+	top:50px;
+	left: 50px;
+}
+.TWmap{
+	width: 1000px;
+	height: 1000px;
+	margin-top: 150px;
+	position: relative;
+}
+
+#map{
+	position:relative;
+	width:700px;
+	height:50%;
+	top:-150px;
+	margin:auto;
+	border-radius: 5px;
+}
+#map svg path:hover{
+	opacity: 0.5;
+}
+
+
+#county-boundary {
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 5,0;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+}
+#panel{
+  position: absolute;
+  z-index:99;
+  height: 50px;
+  width: 80px;
+  background-color: #fff;
+  -webkit-transition:all .1s;
+  border-radius: 5px;
+  background-color: #000;
+  background-color:rgba(0,0,0,0.3);
+  font-family: 微軟正黑體; 
+  color:#fff;
+  padding:10px;
+  
+}

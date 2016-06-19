@@ -2,178 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>首頁</title>
+  <title>台灣稻作地圖</title>
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-
   <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
-  
+  <link rel="stylesheet" href="css/all.css">
   <script type="text/javascript" src="test.js"></script>
-  <style>
-  .wrap {
-    width: 1000px;
-    border:5px solid white;
-    margin: 0 auto;
-  }
-  #map svg path:hover{
-    opacity: 0.5;
-  }
-  #cropchoice{
-    width: 600px;
-    height: 50px;
-    margin: 0 auto;
-  }
-  #cropchoice li{
-    display: inline;
-    list-style-type: none;
-    width: 100px;
-    height: 30px;
-    background-color: #FFA5A5;
-    padding: 5px 10px 5px 10px;
-    font-family: 微軟正黑體;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  #cropchoice li:hover{
-    
-    color: #FFA5A5;
-    background-color: white;
-  }
-  .default {
-    background-color: #FFA5A5;
-  }
-  #reference  {
-    position: absolute;
-    top:50px;
-    left: 50px;
-  }
-  .TWmap{
-    width: 1000px;
-    height: 1000px;
-    margin-top: 150px;
-    position: relative;
-  }
-  table {
-    float: left;
-    background: white;
-    border:1px solid #747e7e;
-    border-collapse: collapse;
-    border-spacing: 2;
-    font-family: 微軟正黑體;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  tr{
-    margin-top: 5px;
-  }
-  td{
-    text-align: center;
-    width: 20px;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-  }
-  body {
-      background-color: #cceeff;
-  }
-
-  @media (min-width: 1800px) {
-    #map{
-
-      position:relative;
-
-      width:700px;
-      height:50%;
-      top:-150px;
-      margin:auto;
-      
-      border-radius: 5px;
-    
-    }
-    svg{
-      width:1000px;
-      height:1000px;
-
-    }
-    path{
-      border:1px solid white;
-    }
-    #county-boundary {
-        fill: none;
-        stroke: #fff;
-        stroke-dasharray: 5,0;
-        stroke-linejoin: round;
-        stroke-width: 2px;
-    }
-    #panel{
-      position: absolute;
-      z-index:99;
-      height: 20px;
-      width: 50px;
-      background-color: #fff;
-      -webkit-transition:all .1s;
-      border-radius: 5px;
-      background-color: #000;
-      background-color:rgba(0,0,0,0.3); 
-      color:#fff;
-      padding:10px;
-      
-    }
-  }
-  @media (max-width: 1500px) {  
-    #map{
-      float: left;
-      position:relative;
-      width:700px;
-      height:50%;
-      top:-150px;
-      left:80px;
-      margin:auto;
-      
-      border-radius: 5px;
-    
-    }
-    svg{
-      width:800px;
-      height:900px;
-    }
-    path{
-      border:1px solid white;
-    }
-    #county-boundary {
-        fill: none;
-        stroke: #fff;
-        stroke-dasharray: 5,0;
-        stroke-linejoin: round;
-        stroke-width: 2px;
-    }
-    #panel{
-      position: absolute;
-      z-index:99;
-      height: 20px;
-      width: 50px;
-      background-color: #fff;
-      -webkit-transition:all .1s;
-      border-radius: 5px;
-      background-color: #000;
-      background-color:rgba(0,0,0,0.3); 
-      color:#fff;
-      padding:10px;
-      top: 100px;
-      right: 20px;
-      width: 100px;
-    }
-    .wrapper > .header{
-      position:relative;
-      margin:-480px auto;
-      width:600px;
-      z-index:2;
-    }
-  }
-
-  </style>
 </head>
 <body>
   <div class="wrap">
@@ -189,6 +23,7 @@
     </div>
     <div class="TWmap">
       <div id="reference">
+        <div id="reference_info">收穫面積</div>
         <table border="1" >
           <tr>
             <td bgcolor="#b9b3fa"></td>
@@ -239,6 +74,7 @@
             <td>0</td>
           </tr>
         </table>
+        <div id="reference_info">單位(公頃)</div>
       </div>
       <div id='map'>
         <svg  viewBox="0 0 1366 768">
@@ -248,7 +84,8 @@
     </div>
     <div id='panel' style="display:none">
         <span id='title'></span><br/>
-        <span id="output"></span><br/>
+        <span id='area'></span><br/>
+        <span id="output"></span>
     </div>
   </div>
 

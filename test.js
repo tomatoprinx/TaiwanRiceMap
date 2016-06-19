@@ -50,15 +50,16 @@ var init = function(){
 //滑鼠移入的效果
     d3.select("svg").selectAll("path").on("mouseenter", function() {          //title div 顯示滑鼠所指向的縣市/行政區
      
-     $('#panel').css("display","inline");
+      $('#panel').css("display","inline");
       //$(this).attr("fill", 'rgb(255,184,219)');
       $('#title').html($(this).attr("name"));
-      $('#output').html($(this).attr("123"));
-      $('#panel').css({"height": "50px","width": "50px"});
+      
+      $('#panel').css({"height": "20px","width": "50px"});
     }).on("mouseout", function() {
       //$(this).attr("fill", 'rgb(2,202,119)');
       $('#panel').css('display','none');
     });
+
 //info 區塊跟隨滑鼠移動
     $("path").mouseover(function(){      
       $("path").mousemove( function(e) {
@@ -72,8 +73,15 @@ var init = function(){
 
 //台灣地圖資料上色
 var drawTaiwan = function(type,button){
+    
     if(type == "預設"){
       $('path').attr("fill",'rgb(2,202,119)');
+      d3.select("svg").selectAll("path").on("mouseenter", function() {
+        $('#panel').css("display","inline");
+        $('#panel').css({"height": "20px","width": "50px"});
+        $('#area').text("");
+        $('#output').text("");
+      });
     }else{
       console.log(type);
 
@@ -81,19 +89,31 @@ var drawTaiwan = function(type,button){
       var path = d3.geo.path().projection( // 路徑產生器
         d3.geo.mercator().center([121,24]).scale(scale) // 座標變換函式
       );
+      
       var output = new Array();
       for(var i = 0; i < rice.length ; i++) {
         //console.log(rice.length);
           if(rice[i].稻作品項 == type){
-            output[rice[i].地區別] = rice[i].收穫面積;  //把產量跟地區連結在一起例如 "嘉義市":"5128";
-            console.log(output["新北市"]);
+            output[rice[i].地區別] = rice[i].收穫面積;  //把產量跟地區連結在一起例如 "嘉義市":"5128"; 
           }
       }
       for(var i=0;i<features.length;i++){  //features.length是台灣共22個縣市
         features[i].formosa=output[features[i].properties.C_Name]; //將產量寫進features
         //console.log(features[i].formosa);
       }
-
+      
+      d3.select("svg").selectAll("path").on("mouseenter", function(d,i) {
+        $('#panel').css("display","inline");
+        $('#panel').css({"height": "70px","width": "150px"});
+        $('#title').html($(this).attr("name"));
+        for(var i = 0; i < rice.length; i++){
+          if(rice[i].地區別 == d.properties.C_Name && rice[i].稻作品項==type){
+            console.log(rice[i].地區別+rice[i].收穫面積);
+            $('#area').text("收穫面積："+rice[i].收穫面積);
+            $('#output').text("產量："+rice[i].產量);
+          }
+        }
+      });
       //colorMap = d3.scale.linear().domain([0,20000]).range(["blue","red"]);
       
       for (var i = 0; i < features.length ; i++){
@@ -127,5 +147,6 @@ var drawTaiwan = function(type,button){
             }
           })
       }
+
   }
 }
