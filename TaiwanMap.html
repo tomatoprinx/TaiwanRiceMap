@@ -10,8 +10,70 @@
   
   <script type="text/javascript" src="test.js"></script>
   <style>
+  .wrap {
+    width: 1000px;
+    border:5px solid white;
+    margin: 0 auto;
+  }
   #map svg path:hover{
     opacity: 0.5;
+  }
+  #cropchoice{
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  #cropchoice li{
+    display: inline;
+    list-style-type: none;
+    width: 100px;
+    height: 30px;
+    background-color: #FFA5A5;
+    padding: 5px 10px 5px 10px;
+    font-family: 微軟正黑體;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  #cropchoice li:hover{
+    
+    color: #FFA5A5;
+    background-color: white;
+  }
+  .default {
+    background-color: #FFA5A5;
+  }
+  #reference  {
+    position: absolute;
+    top:50px;
+    left: 50px;
+  }
+  .TWmap{
+    width: 1000px;
+    height: 1000px;
+    margin-top: 150px;
+    position: relative;
+  }
+  table {
+    float: left;
+    background: white;
+    border:1px solid #747e7e;
+    border-collapse: collapse;
+    border-spacing: 2;
+    font-family: 微軟正黑體;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  tr{
+    margin-top: 5px;
+  }
+  td{
+    text-align: center;
+    width: 20px;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
   }
   body {
       background-color: #cceeff;
@@ -31,8 +93,8 @@
     
     }
     svg{
-      width:800px;
-      height:1100px;
+      width:1000px;
+      height:1000px;
 
     }
     path{
@@ -62,7 +124,7 @@
   }
   @media (max-width: 1500px) {  
     #map{
-
+      float: left;
       position:relative;
       width:700px;
       height:50%;
@@ -76,7 +138,6 @@
     svg{
       width:800px;
       height:900px;
-
     }
     path{
       border:1px solid white;
@@ -116,25 +177,78 @@
 </head>
 <body>
   <div class="wrap">
-    <div>
-      <select name="稻作品項" id="map_croptype">
-        <option value="null" selected>選擇種類</option>
-        <option value="稉稻(蓬萊)">蓬萊米</option>
-        <option value="硬秈稻(在來)">在來米</option>
-        <option value="軟秈稻(秈稻)">秈稻米</option>
-        <option value="稉糯稻(圓糯)">圓糯米</option>
-        <option value="秈糯稻(長糯)">長糯米</option>
-      </select>
-      <button onclick="drawTaiwan()">查詢</button>
+    <div id="cropchoice">
+      <ul>
+        <li class="default" onclick="drawTaiwan('預設',this)">預設</li>
+        <li onclick="drawTaiwan('稉稻(蓬萊)',this)">蓬萊米</li>
+        <li onclick="drawTaiwan('硬秈稻(在來)',this)">在來米</li>
+        <li onclick="drawTaiwan('軟秈稻(秈稻)',this)">秈稻米</li>
+        <li onclick="drawTaiwan('稉糯稻(圓糯)',this)">圓糯米</li>
+        <li onclick="drawTaiwan('秈糯稻(長糯)',this)">長糯米</li>
+      </ul>
     </div>
-    <div id='map'>
-    <svg  viewBox="0 0 1366 768">
+    <div class="TWmap">
+      <div id="reference">
+        <table border="1" >
+          <tr>
+            <td bgcolor="#b9b3fa"></td>
+            <td>20000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#e5fcc2"></td>
+            <td>18000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#A4EAE8"></td>
+            <td>16000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#bdf765"></td>
+            <td>14000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#7ffe9d"></td>
+            <td>12000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#9de0ad"></td>
+            <td>10000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#52c86f"></td>
+            <td>8000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#20d2ca"></td>
+            <td>6000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#45ADA8"></td>
+            <td>4000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#3390A3"></td>
+            <td>2000~</td>
+          </tr>
+          <tr>
+            <td bgcolor="#547980"></td>
+            <td>0~2000</td>
+          </tr>
+          <tr>
+            <td bgcolor="#504f4f"></td>
+            <td>0</td>
+          </tr>
+        </table>
+      </div>
+      <div id='map'>
+        <svg  viewBox="0 0 1366 768">
           <g id='pathCanvas'></g>
-    </svg>
+        </svg>
+      </div>
     </div>
     <div id='panel' style="display:none">
-      <span id='title'></span><br/>
-      <span id="output"></span><br/>
+        <span id='title'></span><br/>
+        <span id="output"></span><br/>
     </div>
   </div>
 
