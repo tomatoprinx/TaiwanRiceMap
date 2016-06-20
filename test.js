@@ -79,6 +79,7 @@ var drawTaiwan = function(type,button){
       d3.select("svg").selectAll("path").on("mouseenter", function() {
         $('#panel').css("display","inline");
         $('#panel').css({"height": "20px","width": "50px"});
+        $('#title').html($(this).attr("name"));
         $('#area').text("");
         $('#output').text("");
       });
