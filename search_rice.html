@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>俺是耕田的</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="img/logo.ico" />
+	<link rel="stylesheet" href="css/all.css">
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="big-wrap">
+		<div class="big-header">
+			<div class="logo">
+				<img src="img/quot.png" alt="quote">
+				<h1>
+					<a href="index.html">俺是耕田的</a>
+				</h1>
+			</div>
+			<div class="menu">
+				<ul>
+                    <li><a href="search_fruit.html">蔬果查詢</a></li>
+                    <li><a href="search_rice.html">稻米查詢</a></li>
+                    <li><a href="rice_content.html">稻米種類</a></li>
+                    <li><a href="about.html">關於我們</a></li>
+                </ul>
+			</div>
+
+		</div>
+<div class="mainbav"><img src="img/slide2.jpg"></div>
+		
+        <select id="selectYear">
+            <option value="null" selected>未選擇年度</option>
+            <option value="2015">2015</option>
+        </select>
+        <select id="selectCounty">
+            <option value="null" selected>未選擇地點</option>
+            <option value="基隆市">基隆市</option>
+            <option value="台北市">台北市</option>
+            <option value="新北市">新北市</option>
+            <option value="宜蘭縣">宜蘭縣</option>
+            <option value="桃園市">桃園市</option>
+            <option value="新竹縣">新竹縣</option>
+            <option value="新竹市">新竹市</option>
+            <option value="苗栗縣">苗栗縣</option>
+            <option value="台中市">台中市</option>
+            <option value="雲林縣">雲林縣</option>
+            <option value="彰化縣">彰化縣</option>
+            <option value="南投縣">南投縣</option>
+            <option value="嘉義縣">嘉義縣</option>
+            <option value="嘉義市">嘉義市</option>
+            <option value="台南市">台南市</option>
+            <option value="高雄市">高雄市</option>
+            <option value="屏東縣">屏東縣</option>
+            <option value="台東縣">台東縣</option>
+            <option value="花蓮縣">花蓮縣</option>
+            <option value="澎湖縣">澎湖縣</option>
+            <option value="金門縣">金門縣</option>
+            <option value="連江縣">連江縣</option>
+        </select>
+        <select id="category">
+            <option value="null" selected>未選擇稻作品項</option>
+            <option value="稉稻(蓬萊)">稉稻(蓬萊)</option>
+            <option value="硬秈稻(在來)">硬秈稻(在來)</option>
+            <option value="軟秈稻(秈稻)">軟秈稻(秈稻)</option>
+            <option value="稉糯稻(圓糯)">稉糯稻(圓糯)</option>
+            <option value="秈糯稻(長糯)">秈糯稻(長糯)</option>
+        </select>
+        <button onclick="myFunction()">查詢</button>
+
+    </div>
+    <h2 style="color:black">年度----地區別---稻作類別---稻作品項---收穫面積(公頃)-----產量(公噸)</h2>
+
+    <script>
+        function myFunction() {
+            d3.select("svg").remove();
+            var x = document.getElementById("selectYear").value;
+            var y = document.getElementById("selectCounty").value;
+            var z = document.getElementById("category").value;
+            var data; // a global
+            d3.json("rice.json", function(data) {
+                var canvas = d3.select("body").append("svg")
+                    .attr("width", 1000)
+                    .attr("height", 50000)
+                canvas.selectAll("text")
+                    .data(data)
+                    .enter()
+                    .append("text")
+                    .filter(function(d) {
+                        if (x == "null") {
+                            return d
+                        } else {
+                            return d.年度 == x
+                        }
+                    })
+                    .filter(function(d) {
+                        if (y == "null") {
+                            return d
+                        } else {
+                            return d.地區別 == y
+                        }
+                    })
+                    .filter(function(d) {
+                        if (z == "null") {
+                            return d
+                        } else {
+                            return d.稻作品項 == z
+                        }
+                    })
+                    .attr("fill", "black")
+                    .attr("font-weight", "bold")
+                    .attr("text-align", "center")
+                    .attr("font-size", 30)
+                    .attr("y", function(d, i) {
+                        return i * 100 + 30
+                    })
+                    .text(function(d) {
+                        return d.年度 + "------" + d.地區別 + "------" + d.稻作類別 + "－" + d.稻作品項 + "----" + d.收穫面積 + "----" + d.產量;
+                    })
+            });
+        }
+    </script>
+
+
+</body>
+</html>

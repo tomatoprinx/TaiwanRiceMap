@@ -24,13 +24,14 @@ td{
 }
 svg{
 	width:900px;
-	height:1000px;
+	height:900px;
   	margin: 0 auto;
+  	text-align: center;
 }
 .big-wrap {
-	width: 1600px;
+	width: 80%;
 	margin:0 auto;
-	
+	margin: 0 10% 0 10%;
 }
 
 /*----bigheader----*/
@@ -82,7 +83,11 @@ svg{
 .menu a:hover {
 	color: #FF7676;
 }
+.mainbav img{
+	width:100%;
+	height:400px;
 
+}
 /*----bigcontent----*/
 .big-content{
 	margin-top: 20px;
@@ -94,6 +99,7 @@ svg{
 	/*--welcome--*/
 #welcome {
 	text-align: center;
+	width: 100%;
 }
 #welcome h2 {
 	font-size: 60px;
@@ -105,12 +111,64 @@ svg{
 	text-align: left;
 	margin: 0 auto;
 	padding:20px 20px 0 20px;
-	line-height: 28px;
+	line-height: 32px;
 	font-size: 17px;
+}
+#intro2{
+	text-align: left;
+	margin: 0 auto;
+	padding:20px 20px 0 20px;
+	line-height: 32px;
+	font-size: 17px;
+} 
+h4{
+	width: 100%;
+	color:black;
+	float: left; 
+}
+/*
+ .team img{
+	width:250px; 
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 15px;
+	float: left;
+	border-radius: 80%;
+    border:5px solid #AAAAAA;
+}*/
+.photo ul {
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 0px;
+}
+.photo ul li{
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 auto;
+	text-align: center;
+}
+.photo img {
+	width: 250px;
+	border-radius: 100%;
+	margin: 0 50px 0 50px;
+}
+.photo{
+	margin: 0 auto;
+	width: 100%;
+	background-color: #F1FCFD;
+}
+.name{
+	width: 100%;
+	height: 20px;
+	background-color: #F1FCFD;
+	color:#000;
 }
 
 /*----bigfunction----*/
-.big-function {	
+.big-function {
 	margin: 0 auto;
 	margin-top: 20px;
 	padding: 20px;
@@ -167,6 +225,7 @@ svg{
 	margin: 0;
 	color: #414A50;
 }
+
 .big-footer h4 {
 	margin: 10px 0 10px 0;
 	text-align: center;
@@ -174,11 +233,14 @@ svg{
 	font-weight: bold;
 	color: #EAEAEA;
 }
-
+.big-footer p a{
+	text-decoration:none;
+	margin: 0;
+	color: #414A50;
+}
 /*----TW_MAPfunction----*/
 .wrap {
-	width: 1600px;
-	height: 800px;
+	height: 1000px;
 	margin: 0 auto;
 	margin-top: 20px;
 	padding: 20px 0 20px 0;
@@ -215,12 +277,15 @@ svg{
 
 #reference  {
 	position: absolute;
-	top:50px;
+	top:200px;
 	left: 200px;
 }
 .TWmap{
-	margin-top: 150px;
+	height: 1000px;
+	padding-top: 150px;
 	position: relative;
+	top: -20px;
+	left: 100px;
 }
 
 #map{
@@ -252,8 +317,9 @@ svg{
   border-radius: 5px;
   background-color: #000;
   background-color:rgba(0,0,0,0.3);
-  font-family: 微軟正黑體; 
+  font-family: 微軟正黑體;
   color:#fff;
   padding:10px;
-  
+
 }
+

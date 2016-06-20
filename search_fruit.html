@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>俺是耕田的</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="img/logo.ico" />
+	<link rel="stylesheet" href="css/all.css">
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="big-wrap">
+		<div class="big-header">
+			<div class="logo">
+				<img src="img/quot.png" alt="quote">
+				<h1>
+					<a href="index.html">俺是耕田的</a>
+				</h1>
+			</div>
+			<div class="menu">
+				<ul>
+                    <li><a href="search_fruit.html">蔬果查詢</a></li>
+                    <li><a href="search_rice.html">稻米查詢</a></li>
+                    <li><a href="rice_content.html">稻米種類</a></li>
+                    <li><a href="about.html">關於我們</a></li>
+                </ul>
+			</div>
+
+		</div>
+
+        
+        <div class="mainbav"><img src="img/slide2.jpg"></div>
+		<select id="selectYear">
+            <option value="null" selected>未選擇年度</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+        </select>    
+        <select id="selectCounty">
+            <option value="null" selected>未選擇地點</option>
+            <option value="高雄市">高雄市</option>
+            <option value="台北市">台北市</option>
+            <option value="桃園市">桃園市</option>
+            <option value="台中市">台中市</option>
+            <option value="台南市">台南市</option>
+            <option value="高雄市">高雄市</option>
+            <option value="宜蘭縣">宜蘭縣</option>
+            <option value="新竹縣">新竹縣</option>
+            <option value="苗栗縣">苗栗縣</option>
+            <option value="彰化縣">彰化縣</option>
+            <option value="南投縣">南投縣</option>
+            <option value="雲林縣">雲林縣</option>
+            <option value="嘉義縣">嘉義縣</option>
+            <option value="屏東縣">屏東縣</option>
+            <option value="台東縣">台東縣</option>
+            <option value="花蓮縣">花蓮縣</option>
+            <option value="澎湖縣">澎湖縣</option>
+            <option value="基隆市">基隆市</option>
+            <option value="新竹市">新竹市</option>
+            <option value="嘉義市">嘉義市</option>
+            <option value="金門縣">金門縣</option>
+            <option value="連江縣">連江縣</option>
+            <option value="新北市">新北市</option>
+
+        </select>
+        <select id="secoption">
+            <option value="null" selected>未選擇種類</option>
+            <option value="蘿蔔">蘿蔔</option>
+            <option value="胡蘿蔔">胡蘿蔔</option>
+            <option value="其他根菜類">其他根菜類</option>
+            <option value="薑">薑</option>
+            <option value="芋">芋</option>
+            <option value="馬鈴薯">馬鈴薯</option>
+            <option value="蔥">蔥</option>
+            <option value="蔥頭">蔥頭</option>
+            <option value="洋蔥">洋蔥</option>
+            <option value="韭菜">韭菜</option>
+            <option value="蒜">蒜</option>
+            <option value="荸薺">荸薺</option>
+            <option value="竹筍">竹筍</option>
+            <option value="蘆筍">蘆筍</option>
+            <option value="筊白筍">筊白筍</option>
+            <option value="其他莖菜類">其他莖菜類</option>
+            <option value="甘藍">甘藍</option>
+            <option value="大芥菜">大芥菜</option>
+            <option value="結球白菜">結球白菜</option>
+            <option value="不結球白菜">不結球白菜</option>
+            <option value="甕菜">甕菜</option>
+            <option value="芹菜">芹菜</option>
+            <option value="其他葉菜類">其他葉菜類</option>
+            <option value="花椰菜">花椰菜</option>
+            <option value="金針菜">金針菜</option>
+            <option value="越瓜">越瓜</option>
+            <option value="胡瓜">胡瓜</option>
+            <option value="冬瓜">冬瓜</option>
+            <option value="苦瓜">苦瓜</option>
+            <option value="茄子">茄子</option>
+            <option value="菜豆">菜豆</option>
+            <option value="豌豆">豌豆</option>
+            <option value="毛豆">毛豆</option>
+            <option value="番茄">番茄</option>
+            <option value="番椒">番椒</option>
+            <option value="洋香瓜">洋香瓜</option>
+            <option value="西瓜">西瓜</option>
+            <option value="香瓜">香瓜</option>
+            <option value="草莓">草莓</option>
+            <option value="其他果菜類">其他果菜類</option>
+        </select>
+        <button onclick="myFunction()">查詢</button>
+        <p>年度--------地區別--------蔬菜類別--------種植面積(公頃)--------收穫面積（公頃）--------每公頃平均產量(公斤)--------產量（公噸)</p>
+
+    </div>
+
+    <script>
+        function myFunction() {
+            d3.select("svg").remove();
+            var x = document.getElementById("selectYear").value;
+            var y = document.getElementById("selectCounty").value;
+            var z = document.getElementById("secoption").value;
+            var data; // a global
+            d3.json("data.json", function(data) {
+                var canvas = d3.select("body").append("svg")
+                    .attr("width", 1000)
+                    .attr("height", 50000)
+                    // canvas.selectAll("rect")
+                    //
+                    // .data(data)
+                    //     .enter()
+                    //     .append("rect")
+                    //     .filter(function(d) {
+                    //         return d.地區別 == x
+                    //     })
+                    //     .filter(function(d) {
+                    //       if (y == "null") {
+                    //           return d
+                    //       } else {
+                    //           return d.蔬菜類別 == y
+                    //       }
+                    //     })
+                    //     .attr("width", function(d) {
+                    //         return d.收穫面積 * 10;
+                    //     })
+                    //     .attr("height", 40)
+                    //     .attr("y", function(d, i) {
+                    //         return i * 100;
+                    //     })
+                    //     .attr("fill", "blue");
+
+                canvas.selectAll("text")
+                    .data(data)
+                    .enter()
+                    .append("text")
+                    .filter(function(d) {
+                      if (x == "null") {
+                          return d
+                      } else {
+                          return d.年度 == x
+                      }
+                    })
+                    .filter(function(d) {
+                      if (y == "null") {
+                          return d
+                      } else {
+                          return d.地區別 == y
+                      }
+                    })
+                    .filter(function(d) {
+                        if (z == "null") {
+                            return d
+                        } else {
+                            return d.蔬菜類別 == z
+                        }
+                    })
+                    .attr("fill", "black")
+                    .attr("font-weight", "bold")
+                    .attr("font-size", 20)
+                    .attr("y", function(d, i) {
+                        return i * 100 + 20
+                    })
+                    .text(function(d) {
+                        return d.年度+"--------" +d.地區別 + "--------" + d.蔬菜類別 + "--------" + d.種植面積+"---------------"+d.收穫面積+"----------------"+d.每公頃平均產量+"------------"+d.產量;
+                    })
+            });
+        }
+    </script>
+
+</body>
+</html>

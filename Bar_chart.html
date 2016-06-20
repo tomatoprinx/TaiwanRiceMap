@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>俺是耕田的</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="img/logo.ico" />
+	<link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+	<div class="big-wrap">
+		<div class="big-header">
+			<div class="logo">
+				<img src="img/quot.png" alt="quote">
+				<h1>
+					<a href="index.html">俺是耕田的</a>
+				</h1>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="search_fruit.html">蔬果查詢</a></li>
+					<li><a href="search_rice.html">稻米查詢</a></li>
+					<li><a href="rice_content.html">稻米種類</a></li>
+					<li><a href="about.html">關於我們</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="big-content">
+
+
+			<div id="welcome">
+					<h2>產量長條圖!</h2>
+			</div>
+
+
+			<form name="change">
+			<SELECT NAME="options" onchange="document.getElementById('youriframe').src = this.options[this.selectedIndex].value">
+			<option value="">選擇縣市</option>
+			<option value="bar_chart/N/Keelung.html">基隆市</option>
+			<option value="bar_chart/N/New_Taipei.html">新北市</option>
+			<option value="bar_chart/N/Taipei.html">台北市</option>
+			<option value="bar_chart/N/Yilan.html">宜蘭縣</option>
+			<option value="bar_chart/N/Taoyuan.html">桃園市</option>
+			<option value="bar_chart/N/Hsinchu.html">新竹縣</option>
+			<option value="bar_chart/N/Hsinchus.html">新竹市</option>
+			<option value="bar_chart/N/Miaoli.html">苗栗縣</option>
+			<option value="bar_chart/center/Taichung.html">台中市</option>
+			<option value="bar_chart/center/Changhua.html">彰化縣</option>
+			<option value="bar_chart/center/Yunlin.html">雲林縣</option>
+			<option value="bar_chart/center/Nantou.html">南投縣</option>
+			<option value="bar_chart/S/Chiayi.html">嘉義縣</option>
+			<option value="bar_chart/S/Chiayis.html">嘉義市</option>
+			<option value="bar_chart/S/Tainan.html">台南市</option>
+			<option value="bar_chart/S/Kaohsiung.html">高雄市</option>
+			<option value="bar_chart/S/Pingtung.html">屏東縣</option>
+			<option value="bar_chart/E/Hualien.html">花蓮縣</option>
+			<option value="bar_chart/E/Taitung.html">台東縣</option>
+			<option value="bar_chart/outside/Penghu.html">澎湖縣</option>
+			<option value="bar_chart/outside/Kinmen.html">金門縣</option>
+			<option value="bar_chart/outside/Lienchiang.html">連江縣</option>
+			</SELECT>
+
+			<iframe name="iframe"  width="100%" height="400"      frameborder="0"  scrolling="no" id="youriframe" src=""></iframe>
+
+
+
+
+
+
+		</div>
+		<div class="big-function">
+			<div id="circle">
+				<ul>
+					<li id="farm">
+						<a href="TaiwanMap.html"><h3>FARM MAP</h3></a>
+					</li>
+					<li id="bubble">
+						<a href="Bubble_chart.html"><h3>BUBBLE</h3></a>
+					</li>
+					<li id="crops">
+						<a href="Bar_chart.html"><h3>CROPS CHART</h3></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="big-footer">
+			<h4>Copyright</h4>
+			<p>© 2016 NUKIM. All rights reserved.</p>
+			<h4>Work By</h4>
+			<p>Nick Sung, Benson Chen, Billy Chen</p>
+			<h4>Data Source</h4>
+			<p><a href="http://data.coa.gov.tw/Query/AdvSearch.aspx?id=113">臺灣蔬菜生產概況</a>
+			</p>
+			<p><a href="http://data.coa.gov.tw/Query/ServiceDetail.aspx?id=138">臺灣稻作種植、收穫面積及產量</a></p>
+		</div>
+	</div>
+</body>
+</html>
