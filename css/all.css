@@ -176,19 +176,19 @@ h4{
 	/*--circle--*/
 #circle ul {
 	display: block;
-	width: 1300px;
+	width: 100%;
 	padding-left: 0;
 	text-align: center;
 	margin: 0 auto;
 }
 #circle ul li{
 	display: inline-block;
-	width: 300px;
-	height: 300px;
+	width: 250px;
+	height: 250px;
 	border-radius: 100%;
 	border: 5px solid white;
 	text-align: center;
-	line-height: 300px;
+	line-height: 250px;
 	margin: 0 50px 0 50px;
 }
 #circle h3 {
