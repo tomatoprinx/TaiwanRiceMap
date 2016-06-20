@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>台灣稻作地圖</title>
+  <link rel="Shortcut Icon" type="image/x-icon" href="img/logo.ico" />
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
@@ -10,84 +11,123 @@
   <script type="text/javascript" src="test.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <div id="cropchoice">
-      <ul>
-        <li class="default" onclick="drawTaiwan('預設',this)">預設</li>
-        <li onclick="drawTaiwan('稉稻(蓬萊)',this)">蓬萊米</li>
-        <li onclick="drawTaiwan('硬秈稻(在來)',this)">在來米</li>
-        <li onclick="drawTaiwan('軟秈稻(秈稻)',this)">秈稻米</li>
-        <li onclick="drawTaiwan('稉糯稻(圓糯)',this)">圓糯米</li>
-        <li onclick="drawTaiwan('秈糯稻(長糯)',this)">長糯米</li>
-      </ul>
-    </div>
-    <div class="TWmap">
-      <div id="reference">
-        <div id="reference_info">收穫面積</div>
-        <table border="1" >
-          <tr>
-            <td bgcolor="#b9b3fa"></td>
-            <td>20000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#e5fcc2"></td>
-            <td>18000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#A4EAE8"></td>
-            <td>16000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#bdf765"></td>
-            <td>14000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#7ffe9d"></td>
-            <td>12000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#9de0ad"></td>
-            <td>10000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#52c86f"></td>
-            <td>8000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#20d2ca"></td>
-            <td>6000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#45ADA8"></td>
-            <td>4000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#3390A3"></td>
-            <td>2000~</td>
-          </tr>
-          <tr>
-            <td bgcolor="#547980"></td>
-            <td>0~2000</td>
-          </tr>
-          <tr>
-            <td bgcolor="#504f4f"></td>
-            <td>0</td>
-          </tr>
-        </table>
-        <div id="reference_info">單位(公頃)</div>
+  <div class="big-wrap">
+    <div class="big-header">
+      <div class="logo">
+        <img src="img/quot.png" alt="quote">
+        <h1>
+          <a href="index.html">俺是耕田的</a>
+        </h1>
       </div>
-      <div id='map'>
-        <svg  viewBox="0 0 1366 768">
-          <g id='pathCanvas'></g>
-        </svg>
+      <div class="menu">
+        <ul>
+          <li><a href="">關於本站</a></li>
+          <li><a href="">蔬果查詢</a></li>
+          <li><a href="">稻米查詢</a></li>
+        </ul>
       </div>
     </div>
-    <div id='panel' style="display:none">
-        <span id='title'></span><br/>
-        <span id='area'></span><br/>
-        <span id="output"></span>
+    <div class="wrap">
+      <div id="cropchoice">
+        <ul>
+          <li class="default" onclick="drawTaiwan('預設',this)">預設</li>
+          <li onclick="drawTaiwan('稉稻(蓬萊)',this)">蓬萊米</li>
+          <li onclick="drawTaiwan('硬秈稻(在來)',this)">在來米</li>
+          <li onclick="drawTaiwan('軟秈稻(秈稻)',this)">秈稻米</li>
+          <li onclick="drawTaiwan('稉糯稻(圓糯)',this)">圓糯米</li>
+          <li onclick="drawTaiwan('秈糯稻(長糯)',this)">長糯米</li>
+        </ul>
+      </div>
+      <div class="TWmap">
+        <div id="reference">
+          <div id="reference_info">收穫面積</div>
+          <table border="1" >
+            <tr>
+              <td bgcolor="#b9b3fa"></td>
+              <td>20000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#e5fcc2"></td>
+              <td>18000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#A4EAE8"></td>
+              <td>16000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#bdf765"></td>
+              <td>14000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#7ffe9d"></td>
+              <td>12000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#9de0ad"></td>
+              <td>10000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#52c86f"></td>
+              <td>8000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#20d2ca"></td>
+              <td>6000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#45ADA8"></td>
+              <td>4000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#3390A3"></td>
+              <td>2000~</td>
+            </tr>
+            <tr>
+              <td bgcolor="#547980"></td>
+              <td>0~2000</td>
+            </tr>
+            <tr>
+              <td bgcolor="#504f4f"></td>
+              <td>0</td>
+            </tr>
+          </table>
+          <div id="reference_info">單位(公頃)</div>
+        </div>
+        <div id='map'>
+          <svg  viewBox="0 0 1366 768">
+            <g id='pathCanvas'></g>
+          </svg>
+        </div>
+      </div>
+      <div id='panel' style="display:none">
+          <span id='title'></span><br/>
+          <span id='area'></span><br/>
+          <span id="output"></span>
+      </div>
+    </div>
+    <div class="big-function">
+      <div id="circle">
+        <ul>
+          <li id="farm">
+            <a href="TaiwanMap.html"><h3>FARM MAP</h3></a>
+          </li>
+          <li id="bubble">
+            <a href=""><h3>BUBBLE</h3></a>
+          </li>
+          <li id="crops">
+            <a href=""><h3>CROPS CHART</h3></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="big-footer">
+      <h4>Copyright</h4>
+      <p>© 2016 NUKIM. All rights reserved.</p>
+      <h4>Work By</h4>
+      <p>Nick Sung, Benson Chen, Billy Chen</p>
     </div>
   </div>
+  
 
 </body>
 </html>

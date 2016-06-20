@@ -1,5 +1,5 @@
 body {
-	background-color: #cceeff;
+	background-image: url(../img/concrete_seamless.png);
 	font-family: 微軟正黑體;
 	margin:0;
 }
@@ -23,20 +23,176 @@ td{
 	padding: 5px 5px 5px 5px;
 }
 svg{
-	width:1000px;
+	width:900px;
 	height:1000px;
   	margin: 0 auto;
 }
-.wrap {
-	width: 1500px;
-	border:5px solid white;
+.big-wrap {
+	width: 1600px;
+	margin:0 auto;
+	
+}
+
+/*----bigheader----*/
+.big-header{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #FFF4E1;
+	border-radius: 2px;
+	box-shadow: 0 3px 15px rgba(103, 122, 141, 0.17);
+}
+	/*--logo--*/
+.logo{
+	text-align: center;
+}
+.logo img {
+	width: 30px;
+}
+.logo h1{
+	margin-top: 0px;
+}
+.logo h1 a{
+	font-size: 60px;
+	color: #414A50;
+	text-decoration: none;
+}
+	/*--menu--*/
+.menu {
+	width: 500px;
+	text-align: center;
 	margin: 0 auto;
+}
+.menu ul {
+	padding-left: 0px;
+	margin: 0;
+}
+.menu ul li {
+	display: inline-block;
+	list-style-type: none;
+	margin-top: 10px;
+}
+.menu a {
+	display: block;
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: bold;
+	color: #118A7E;
+	padding: 0 10px 0 10px;
+}
+.menu a:hover {
+	color: #FF7676;
+}
+
+/*----bigcontent----*/
+.big-content{
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #F1FCFD;
+	border-radius: 2px;
+	box-shadow: 0 3px 15px rgba(103, 122, 141, 0.17);
+}
+	/*--welcome--*/
+#welcome {
+	text-align: center;
+}
+#welcome h2 {
+	font-size: 60px;
+	font-weight: bold;
+	color: #118A7E;
+	margin: 0;
+}
+#intro {
+	text-align: left;
+	margin: 0 auto;
+	padding:20px 20px 0 20px;
+	line-height: 28px;
+	font-size: 17px;
+}
+
+/*----bigfunction----*/
+.big-function {	
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 20px;
+}
+	/*--circle--*/
+#circle ul {
+	display: block;
+	width: 1300px;
+	padding-left: 0;
+	text-align: center;
+	margin: 0 auto;
+}
+#circle ul li{
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	border-radius: 100%;
+	border: 5px solid white;
+	text-align: center;
+	line-height: 300px;
+	margin: 0 50px 0 50px;
+}
+#circle h3 {
+	margin:0;
+}
+#circle a {
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 24px;
+	color: white;
+}
+#circle li:hover {
+	opacity: 0.8;
+}
+#farm {
+	background-color: #08D9D6;
+}
+#bubble {
+	background-color: #252A34;
+}
+#crops {
+	background-color: #FF2E63;
+}
+/*----bigfooter----*/
+.big-footer {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #8BD7D1;
+	border-radius: 2px;
+	box-shadow: 0 3px 15px rgba(103, 122, 141, 0.17);
+}
+.big-footer p {
+	text-align: center;
+	margin: 0;
+	color: #414A50;
+}
+.big-footer h4 {
+	margin: 10px 0 10px 0;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: #EAEAEA;
+}
+
+/*----TW_MAPfunction----*/
+.wrap {
+	width: 1600px;
+	height: 800px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 20px 0 20px 0;
+	background-color: white;
 }
 
 #cropchoice{
 	width: 600px;
 	height: 50px;
 	margin: 0 auto;
+	text-align: center;
+}
+#cropchoice ul {
+	padding-left: 0;
 }
 #cropchoice li{
 	display: inline;
@@ -56,17 +212,13 @@ svg{
 	color: #FFA5A5;
 	background-color: white;
 }
-.default {
-	background-color: #FFA5A5;
-}
+
 #reference  {
 	position: absolute;
 	top:50px;
-	left: 50px;
+	left: 200px;
 }
 .TWmap{
-	width: 1000px;
-	height: 1000px;
 	margin-top: 150px;
 	position: relative;
 }
@@ -82,7 +234,6 @@ svg{
 #map svg path:hover{
 	opacity: 0.5;
 }
-
 
 #county-boundary {
     fill: none;
